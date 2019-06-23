@@ -1,3 +1,4 @@
+
 var result = `
 /* 面试官你好，我是XXX
  * 我将以动画的形式来描述自己
@@ -38,7 +39,7 @@ var n = 0
 var id = setInterval(() => {
     n += 1
     code.innerHTML = result.substring(0, n)
-    code.innerHTML=code.innerHTML.replace('html','<span style="color:red">html</span>')
+    code.innerHTML=Prism.highlight(code.innerHTML, Prism.languages.css, 'css');
     styleTag.innerHTML = result.substring(0, n)
     console.log(1)
 
