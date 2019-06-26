@@ -30,6 +30,23 @@ html{
  padding:16px
 }
 
+/* 我需要代码高亮*/
+.token.selector{
+    color:#690;
+}
+.token.function{
+    color:#dd4a68;
+}
+.token.property{
+    color:#905;
+}
+
+/* 加点3D效果*/
+#code{
+    transform:rotate(360deg);
+}
+/* 不玩了，我来介绍一下我自己*/
+/* 我需要一张白纸*/
 `
 
 
@@ -48,4 +65,4 @@ var id = setInterval(() => {
 
         window.clearInterval(id)
     }
-}, 50)
+}, 30)
