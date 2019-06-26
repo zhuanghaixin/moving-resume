@@ -64,5 +64,39 @@ var id = setInterval(() => {
         console.log('ss')
 
         window.clearInterval(id)
+        fn2()
+        fn3(result)
     }
-}, 30)
+}, 10)
+
+function fn2(){
+    var paper=document.createElement('div')
+    paper.id='paper'
+    document.body.appendChild(paper)
+}
+function fn3(preResult) {
+    var result=`
+ #paper{
+   height:100px;
+   width:100px;
+   background:red;
+  }
+
+    `
+    var n = 0
+    var id = setInterval(() => {
+        n += 1
+        console.log(preResult)
+        code.innerHTML = preResult+result.substring(0,n)
+        code.innerHTML=Prism.highlight(preResult, Prism.languages.css, 'css');
+        styleTag.innerHTML = preResult+result.substring(0,n)
+        // console.log(1)
+
+        if (n >= result.length) {
+            console.log('ss')
+            window.clearInterval(id)
+
+        }
+    }, 10)
+
+}
