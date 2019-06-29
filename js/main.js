@@ -1,4 +1,20 @@
+function writeCode(prefix,code,fn){
+    let domCode=document.querySelector('#code')
+    let n = 0
+    console.log("设置闹钟")
+    let id = setInterval(() => {
+        n += 1
+        console.log("开始执行代码");
+        domCode.innerHTML =Prism.highlight(prefix+code.substring(0, n), Prism.languages.css, 'css');
+        styleTag.innerHTML =prefix+ code.substring(0, n)
+        if (n >= code.length) {
+            console.log('ss')
+            window.clearInterval(id)
+            fn.call()
+        }
+    }, 10)
 
+}
 var result = `
 /* 面试官你好，我是XXX
  * 我将以动画的形式来描述自己
@@ -50,32 +66,7 @@ html{
 `
 
 
-
-
-var n = 0
-var id = setInterval(() => {
-    n += 1
-    code.innerHTML = result.substring(0, n)
-    code.innerHTML=Prism.highlight(code.innerHTML, Prism.languages.css, 'css');
-    styleTag.innerHTML = result.substring(0, n)
-    console.log(1)
-
-    if (n >= result.length) {
-        console.log('ss')
-
-        window.clearInterval(id)
-        fn2()
-        fn3(result)
-    }
-}, 10)
-
-function fn2(){
-    var paper=document.createElement('div')
-    paper.id='paper'
-    document.body.appendChild(paper)
-}
-function fn3(preResult) {
-    var result=`
+var result2=`
  #paper{
    height:100px;
    width:100px;
@@ -83,10 +74,44 @@ function fn3(preResult) {
   }
 
     `
+// writeCode(result)   // 设置闹钟；10毫秒后开始写第一行代码
+// console.log("执行fn2");
+// fn2()
+//1。定闹钟
+//2。writeCode返回
+//3.执行fn2()
+//4.闹钟时间到
+//5。写第一行代码
+
+
+writeCode('',result,()=>{
+    console.log("哦，结束了")
+    createPaper(()=>{
+        writeCode(result,result2)
+    })
+})
+
+//类比
+//明天六点起床()
+//玩游戏()
+
+
+function createPaper(fn){
+    var paper=document.createElement('div')
+    paper.id='paper'
+    document.body.appendChild(paper)
+    fn.call()
+
+}
+function fn3(preResult) {
+    console.log(1234)
+
     var n = 0
     var id = setInterval(() => {
         n += 1
         console.log(preResult)
+        console.log('result')
+        console.log(result)
         code.innerHTML = preResult+result.substring(0,n)
         code.innerHTML=Prism.highlight(preResult, Prism.languages.css, 'css');
         styleTag.innerHTML = preResult+result.substring(0,n)
