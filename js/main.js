@@ -1,4 +1,6 @@
 function writeCode(prefix,code,fn){
+    console.log('fn')
+    console.log(fn)
     let domCode=document.querySelector('#code')
     let n = 0
     console.log("设置闹钟")
@@ -7,12 +9,14 @@ function writeCode(prefix,code,fn){
         console.log("开始执行代码");
         domCode.innerHTML =Prism.highlight(prefix+code.substring(0, n), Prism.languages.css, 'css');
         styleTag.innerHTML =prefix+ code.substring(0, n)
+        //页面滚动
+        domCode.scrollTop=10000
         if (n >= code.length) {
             console.log('ss')
             window.clearInterval(id)
             fn.call()
         }
-    }, 10)
+    }, 1)
 
 }
 var result = `
@@ -63,14 +67,36 @@ html{
 }
 /* 不玩了，我来介绍一下我自己*/
 /* 我需要一张白纸*/
+
+#code{
+position:fixed;
+left:0;
+width:50%;
+height:100%;
+}
+
+#paper{
+position:fixed;
+display:flex;
+right:0;
+// justify-content:center;
+// align-items:center;
+width:50%;
+height:100%;
+background-color:black;
+padding:10px;
+}
+#paper>.content{
+background-color:white;
+width:100%;
+height:100%;
+}
 `
 
 
 var result2=`
  #paper{
-   height:100px;
-   width:100px;
-   background:red;
+
   }
 
     `
@@ -99,6 +125,9 @@ writeCode('',result,()=>{
 function createPaper(fn){
     var paper=document.createElement('div')
     paper.id='paper'
+    var content=document.createElement('div')
+    content.className='content'
+    paper.appendChild(content)
     document.body.appendChild(paper)
     fn.call()
 
