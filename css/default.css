@@ -16,5 +16,14 @@
 
 #code{
     height: 100vh;
-    overflow: hidden;
+    overflow: auto ;
+}
+#code::-webkit-scrollbar {
+    display: none;
+}
+.content{
+    overflow: auto;
+}
+.content::-webkit-scrollbar {
+    display: none;
 }
