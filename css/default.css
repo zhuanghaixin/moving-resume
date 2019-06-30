@@ -36,3 +36,17 @@
     padding: 16px;
     overflow: auto;
 }
+#code-wrapper{
+    position: relative;
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+}
+@keyframes breath{
+    0%{
+        box-shadow: 0 0 10px rgba(0,0,0,1)
+    }
+    100%{
+        box-shadow: 0 0 10px rgba(0,0,0,0.2)
+    }
+}

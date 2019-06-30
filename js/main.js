@@ -34,19 +34,15 @@ html{
   background:rgba(222,222,222)
   font-size:16px;
 }
-#code{
-
-}
 
 *{
 transition:all 1s;
 }
 html{
   background:rgba(222,222,222)
-  font-size:16px;
 }
 #code{
- border:1px solid red;
+ border:1px solid #aaa;
  padding:16px;
 }
 
@@ -81,13 +77,17 @@ left:0;
 width:50%;
 height:100%;
 }
+#code-wrapper{
+  width: 50%; left: 0; position: fixed; 
+  height: 100%;
+}
 
 #paper{
 position:fixed;
 display:flex;
 right:0;
-// justify-content:center;
-// align-items:center;
+
+align-items:staet;
 width:50%;
 height:100%;
 background-color:black;
@@ -193,7 +193,7 @@ writeCode('',result,()=> {
                     writeCode(result + result2, result3, () => {
                         console.log('完成')
                     })
-                })
+            })
 
             })
         })
