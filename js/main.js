@@ -16,98 +16,78 @@ function writeCode(prefix,code,fn){
             window.clearInterval(id)
             fn && fn.call()
         }
-    }, 1)
+    }, 30)
 
 }
-var result = `
-/* 面试官你好，我是XXX
- * 我将以动画的形式来描述自己
- * 只有文字介绍太单调了
- * 我用代码来介绍吧
- * 首先我会准备一些样式
+let result = `/*
+ * 面试官你好，我是庄海鑫
+ * 下面是我的会动的简历~
  */
-
+ 
+/* 首先给所有元素加上过渡效果 */
 *{
-transition:all 1s;
+ transition: all 1s;
 }
+/* 白色背景太单调了，我们来点背景 */
 html{
-  background:rgba(222,222,222)
-  font-size:16px;
+    background: #ddd;
 }
-
-*{
-transition:all 1s;
+/* 文字离边框太近了 */
+#code-wrapper{
+    padding: 20px;
 }
-html{
-  background:rgba(222,222,222)
-}
+/* 加个边框 */
 #code{
- border:1px solid #aaa;
- padding:16px;
+    border: 1px solid #888;
+    padding: 24px;
 }
 
-/* 我需要代码高亮*/
+/* 我需要一点代码高亮 */
 .token.selector{
-    color:#690;
-}
-.token.function{
-    color:#dd4a68;
+    color: #690;
 }
 .token.property{
-    color:#905;
+    color: #905;
 }
-/* 加一个呼吸效果 */
+
+/* 来点呼吸效果 */
 #code{
-  animation: breath 0.5s infinite alternate-reverse;
+    animation: breath 0.5s infinite alternate-reverse;
 }
-/* 加点3D效果*/
-#code{
-    transform:rotate(360deg);
-}
+`;
 
 
+let result2 = `
 
-
-/* 现在正式开始 */
-/* 我需要一张白纸 */
-
-#code{
-position:fixed;
-left:0;
-width:50%;
-height:100%;
-}
+/* 接下来给自己准备一张白纸 */
 #code-wrapper{
-  width: 50%; left: 0; position: fixed; 
-  height: 100%;
+    position: fixed;
+    width: 50%;
+    left: 0;
+    height: 100%;
+    padding: 20px;
 }
-
+#code{
+    border: 1px solid #888;
+}
 #paper{
-position:fixed;
-display:flex;
-right:0;
-
-align-items:staet;
-width:50%;
-height:100%;
-background-color:black;
-padding:10px;
+    position: fixed;
+    right: 0;
+    width:50%;
+    height:100%;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
 }
-#paper>.content{
-background-color:white;
-width:100%;
-height:100%;
+#paper > .content{
+   background: white;
+   width: 100%;
+   height: 100%;
 }
-`
-
-
-var result2=`
- #paper{
-
-  }
-
-
-    `
+/* 好了，我开始写简历了 */
+`;
 // writeCode(result)   // 设置闹钟；10毫秒后开始写第一行代码
 // console.log("执行fn2");
 // fn2()
@@ -145,27 +125,15 @@ var md=`
 - 二次二等院级奖学金,两次三等院级奖学金
 - 院级文艺活动展出(唱歌）
 ## 项目经历
-09/2013~07/2017
-## 基于Vue的UI组件库的设计与实现
-- 项目介绍： 该项目的是参考目前流行的前端UI组件库Ant Design,iView进而设计的一款属于自己的组件库，实现了常有组件类型，基础组件，布局组件，导航组件，表单组件，视图组件 。项目使用Vue技术栈，组件库文档使用的是VuePress。
-- 技术栈：vue、vue cli3、es6、parcel、karma、
-- 项目地址: https://github.com/zhuanghaixin/hisen
-03/2019~04/2019
-## 基于Vue的仿CNode网站
-- 项目介绍： 该项目的目的是搭建线上学习平台，把线下课堂的完整学习流程搬到线上，平台包括课程展示、购买、直播、录播、作业、权限管理、停课复课、试听等几十个大功能。该项目采用前后分离的技术方案， 我主要负责前端部分的开发。项目前端部分使用Vue技术栈，移动端平台使用自己实现的vue ui组件库。
-- 技术栈：vue、vue-router、vuex、element-ui、typescript、webpack、es6、移动端
-- 项目成果: 项目支撑饥人谷日常教学活动、运营活动的正常开展，支持数千学生的日常线上学习，几十万用户的日常访问。
-09/2013~07/2017
-## 会动的简历
-- 项目介绍： 该项目的目的是搭建线上学习平台，把线下课堂的完整学习流程搬到线上，平台包括课程展示、购买、直播、录播、作业、权限管理、停课复课、试听等几十个大功能。该项目采用前后分离的技术方案， 我主要负责前端部分的开发。项目前端部分使用Vue技术栈，移动端平台使用自己实现的vue ui组件库。
-- 技术栈：vue、vue-router、vuex、element-ui、typescript、webpack、es6、移动端
-- 项目地址: 项目支撑饥人谷日常教学活动、运营活动的正常开展，支持数千学生的日常线上学习，几十万用户的日常访问。
-- 项目预览: 项目支撑饥人谷日常教学活动、运营活动的正常开展，支持数千学生的日常线上学习，几十万用户的日常访问。
-09/2013~07/2017
-## 网易云音乐
-- 项目介绍： 该项目的目的是搭建线上学习平台，把线下课堂的完整学习流程搬到线上，平台包括课程展示、购买、直播、录播、作业、权限管理、停课复课、试听等几十个大功能。该项目采用前后分离的技术方案， 我主要负责前端部分的开发。项目前端部分使用Vue技术栈，移动端平台使用自己实现的vue ui组件库。
-- 技术栈：vue、vue-router、vuex、element-ui、typescript、webpack、es6、移动端
-- 项目成果: 项目支撑饥人谷日常教学活动、运营活动的正常开展，支持数千学生的日常线上学习，几十万用户的日常访问。
+- [Vue小米商城](https://github.com/zhuanghaixin/xiaomi-mall-pc-demo)
+- [Vue组件库](https://github.com/zhuanghaixin/hisen)
+- [vue-admiin-dashboard](https://github.com/zhuanghaixin/vue-admin-dashboard)
+- [会动的简历](https://github.com/zhuanghaixin/moving-resume)
+- [简历介绍页面](https://zhuanghaixin.github.io/Cool-resume/src)
+- [皮卡丘动画](https://github.com/zhuanghaixin/Pikaqu)
+- [画板](https://github.com/zhuanghaixin/Canvas-drawing-board)
+- [书签](https://zhuanghaixin.github.io/myBookmarks/)
+
 ## 个人评价
 对前端有着浓厚的兴趣，很喜欢网页界面设计，会经常下载各种app和浏览一些网页，关注产品的用户体验。 未来三年规划，希望自己可以成长为独当一面的以产品为方向的前端工程师 每天学习英语半小时以上，我深知英语对前端的重要性，不论是对新技术的学习还是技术的深挖 会经常写博客总结自己所学。
 `
